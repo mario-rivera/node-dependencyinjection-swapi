@@ -1,0 +1,9 @@
+services:
+    SwapiInterface:
+        class: Swapi/SwapiClient
+        arguments: ['%node-fetch']
+        calls:
+            - { method: 'setBaseUrl', arguments: ['%env(SWAPI_URL)%'] }
+    PeopleRepositoryInterface:
+        class: People/PeopleRepository
+        arguments: ['@SwapiInterface']

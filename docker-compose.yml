@@ -1,0 +1,15 @@
+version: '3.7'
+
+services:
+  node:
+    image: node:12.18.4
+    working_dir: /code
+    volumes:
+      - .:/code
+    networks: 
+      - default
+    command: docker/shell/node.sh
+    
+networks:
+  default:
+    name: local/dev
